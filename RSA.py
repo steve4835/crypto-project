@@ -1,4 +1,5 @@
 import math
+import time
 
 class RSA(object):
     @staticmethod
@@ -16,6 +17,7 @@ class RSA(object):
 
     @staticmethod
     def factorize(n):
+        start = time.time_ns()
         factors = []
         while n % 2 == 0:
             factors.append(2)
@@ -26,6 +28,8 @@ class RSA(object):
                 factors.append(i)
                 n = n / i
             i += 1
+        end = time.time_ns()
+        factors.append((end - start) / 10**6)
         return factors
 
     @staticmethod

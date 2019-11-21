@@ -16,7 +16,17 @@ class RSA(object):
 
     @staticmethod
     def factorize(n):
-        pass
+        factors = []
+        while n % 2 == 0:
+            factors.append(2)
+            n = n / 2
+        i = 3
+        while n != 1:
+            while n % i== 0:
+                factors.append(i)
+                n = n / i
+            i += 1
+        return factors
 
     @staticmethod
     def generate_keypair(min, max):

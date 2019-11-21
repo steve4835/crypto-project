@@ -27,7 +27,7 @@ class RSA(object):
             while n % i== 0:
                 factors.append(i)
                 n = n / i
-            i += 1
+            i += 2
         end = time.time_ns()
         factors.append((end - start) / 10**6)
         return factors

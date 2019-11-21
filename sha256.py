@@ -20,7 +20,6 @@ for b in [1, 2, 3, 4]:
         while digest[-b:] != B:
             tries += 1
             hash = hashlib.new('sha256')
-            digest = ''
             rand_string = ''.join(random.choice(ALPHANUMERIC) for i in range(STR_LEN))
             hash.update(rand_string.encode('utf-8'))
             digest = hash.digest().hex()

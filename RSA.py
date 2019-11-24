@@ -1,6 +1,7 @@
 import math
 import time
 
+
 class RSA(object):
     @staticmethod
     def is_prime(n):
@@ -13,14 +14,14 @@ class RSA(object):
 
     @staticmethod
     def prime_range(m, n):
-        prime = [True for i in range(n+1)]
+        prime = [True for i in range(n + 1)]
         p = 2
         prime[0] = False
         prime[1] = False
 
-        while(p**2 < n):
+        while p ** 2 < n:
             if prime[p]:
-                for i in range(2*p, n+1, p):
+                for i in range(2 * p, n + 1, p):
                     prime[i] = False
             p += 1
 
@@ -35,12 +36,12 @@ class RSA(object):
             n = n / 2
         i = 3
         while n != 1:
-            while n % i== 0:
+            while n % i == 0:
                 factors.append(i)
                 n = n / i
             i += 2
         end = time.time_ns()
-        factors.append((end - start) / 10**6)
+        factors.append((end - start) / 10 ** 6)
         return factors
 
     @staticmethod
@@ -48,7 +49,7 @@ class RSA(object):
         first = 10
         second = 19
 
-        #generate public key
+        # generate public key
         primes = RSA.prime_range(min, max)
         p = primes[first - 1]
         q = primes[second - 1]
@@ -57,21 +58,21 @@ class RSA(object):
 
         e = RSA.find_e(totient)
 
-        #generate private key
-        d = RSA.table_method(totient, e)
+        # generate private key
+        d = RSA.find_d(totient, e)
 
-        return dict(pub=[e,n], priv=[d, p, q])
+        return dict(pub=[e, n], priv=[d, p, q])
 
     @staticmethod
     def find_e(totient):
         for e in range(3, totient):
             if math.gcd(e, totient) == 1:
-               return e
+                return e
 
     @staticmethod
-    def table_method(totient, e):
-        #euler's exended algo from youtube video
-        #https://youtu.be/Z8M2BTscoD4?t=660
+    def find_d(totient, e):
+        # euler's exended algo from youtube video
+        # https://youtu.be/Z8M2BTscoD4?t=660
 
         t = [[totient, totient], [e, 1]]
 
@@ -84,7 +85,6 @@ class RSA(object):
             t.pop(0)
 
         return t[1][1]
-
 
     def __init__(self, m):
         self.encrypted = False
@@ -113,6 +113,7 @@ class RSA(object):
         self.message = [pow(m, d, n) for m in self.message]
         self.encrypted = False
 
+
 if __name__ == "__main__":
     print("***RSA implementation demonstration***")
     message = "rsa"
@@ -125,23 +126,23 @@ if __name__ == "__main__":
     m.decrypt(keys['priv'])
     print("decrypted message: ", m.get_message(), "\n", m.message, "\n\n")
 
-    #routine to test the time complexity of factoring the public key
+    # routine to test the time complexity of factoring the public key
     print("***Demonstrating time complexity to break RSA***")
     print("Generating list of primes...")
     primes = RSA.prime_range(1, 100000000)
     for i in range(1, 13):
-        a = primes[int(10**(i/2))+12] * primes[int(10**((i+1)/2))]
+        a = primes[int(10 ** (i / 2)) + 12] * primes[int(10 ** ((i + 1) / 2))]
         factors = RSA.factorize(a)
         print("\nn: {0}\nKey length: {1}".format(
-              a,
-              len(str(a))))
+            a,
+            len(str(a))))
         print("Factors of n (p and q):", factors[:-1])
         totient = (factors[0] - 1) * (factors[1] - 1)
         print("Totient value for RSA algorithm: {0}".format(totient))
         start = time.time_ns()
         e = RSA.find_e(totient)
-        d = RSA.table_method(totient, e)
+        d = RSA.find_d(totient, e)
         end = time.time_ns()
-        time_taken = factors[2] + ((end - start) / 10**6)
+        time_taken = factors[2] + ((end - start) / 10 ** 6)
         print("d:", d)
         print("Total time taken to factorize n and calculate d: {0:.2f}ms".format(time_taken))

@@ -12,8 +12,19 @@ class RSA(object):
         return True
 
     @staticmethod
-    def prime_range(n, m):
-        return [x for x in range(n, m) if RSA.is_prime(x)]
+    def prime_range(m, n):
+        prime = [True for i in range(n+1)]
+        p = 2
+        prime[0] = False
+        prime[1] = False
+
+        while(p**2 < n):
+            if prime[p]:
+                for i in range(2*p, n+1, p):
+                    prime[i] = False
+            p += 1
+
+        return [i for i in range(m, len(prime)) if prime[i]]
 
     @staticmethod
     def factorize(n):

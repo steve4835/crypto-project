@@ -1,0 +1,5 @@
+Using 25 trials for each B
+Stats for B=4: min:1  max:40  avg:11.24
+Stats for B=8: min:3  max:774  avg:310.92
+Stats for B=12: min:15  max:11649  avg:3959.96
+Stats for B=16: min:3376  max:240247  avg:69319.32

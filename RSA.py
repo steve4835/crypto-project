@@ -114,22 +114,25 @@ class RSA(object):
         self.encrypted = False
 
 if __name__ == "__main__":
-    message = input("Type message to be encrypted: ")
+    print("***RSA implementation demonstration***")
+    message = "rsa"
     m = RSA(message)
     print("plaintext message: ", m.get_message(), "\n", m.message)
     keys = RSA.generate_keypair(1000, 10000)
-    print("keys: ", keys)
+    print("keys: {0}\n".format(keys))
     m.encrypt(keys['pub'])
-    print("encrypted message: ", m.get_message(), "\n", m.message)
+    print("encrypted message: ", m.get_message(), "\n", m.message, "\n")
     m.decrypt(keys['priv'])
-    print("decrypted message: ", m.get_message(), "\n", m.message)
+    print("decrypted message: ", m.get_message(), "\n", m.message, "\n\n")
 
     #routine to test the time complexity of factoring the public key
+    print("***Demonstrating time complexity to break RSA***")
+    print("Generating list of primes...")
     primes = RSA.prime_range(1, 100000000)
     for i in range(1, 13):
         a = primes[int(10**(i/2)) + 12] * primes[int(10**((i+1)/2))]
         factors = RSA.factorize(a)
-        print("n: {0}\nKey length:{1}".format(
+        print("\nn: {0}\nKey length:{1}".format(
               a,
               len(str(a))))
         print("Factors of n (p and q):", factors[:-1])
@@ -141,4 +144,4 @@ if __name__ == "__main__":
         end = time.time_ns()
         time_taken = factors[2] + ((end - start) / 10**6)
         print("d: ", d)
-        print("Total time taken to factorize n and calculate d: {0:.2f}ms\n".format(time_taken))
+        print("Total time taken to factorize n and calculate d: {0:.2f}ms".format(time_taken))

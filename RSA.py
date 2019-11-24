@@ -132,7 +132,7 @@ if __name__ == "__main__":
     for i in range(1, 13):
         a = primes[int(10**(i/2)) + 12] * primes[int(10**((i+1)/2))]
         factors = RSA.factorize(a)
-        print("\nn: {0}\nKey length:{1}".format(
+        print("\nn: {0}\nKey length: {1}".format(
               a,
               len(str(a))))
         print("Factors of n (p and q):", factors[:-1])
@@ -143,5 +143,5 @@ if __name__ == "__main__":
         d = RSA.table_method(totient, e)
         end = time.time_ns()
         time_taken = factors[2] + ((end - start) / 10**6)
-        print("d: ", d)
+        print("d:", d)
         print("Total time taken to factorize n and calculate d: {0:.2f}ms".format(time_taken))

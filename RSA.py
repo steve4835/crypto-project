@@ -130,7 +130,7 @@ if __name__ == "__main__":
     print("Generating list of primes...")
     primes = RSA.prime_range(1, 100000000)
     for i in range(1, 13):
-        a = primes[int(10**(i/2)) + 12] * primes[int(10**((i+1)/2))]
+        a = primes[int(10**(i/2))] * primes[int(10**((i+1)/2))]
         factors = RSA.factorize(a)
         print("\nn: {0}\nKey length: {1}".format(
               a,

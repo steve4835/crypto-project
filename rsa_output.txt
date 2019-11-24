@@ -13,86 +13,86 @@ decrypted message:  rsa
 ***Demonstrating time complexity to break RSA***
 Generating list of primes...
 
-n: 217
-Key length: 3
-Factors of n (p and q): [7, 31]
-Totient value for RSA algorithm: 180
-d: 103
-Total time taken to factorize n and calculate d: 0.07ms
-
-n: 4061
+n: 1643
 Key length: 4
-Factors of n (p and q): [31, 131]
-Totient value for RSA algorithm: 3900
-d: 3343
-Total time taken to factorize n and calculate d: 0.05ms
+Factors of n (p and q): [31, 53]
+Totient value for RSA algorithm: 1560
+d: 223
+Total time taken to factorize n and calculate d: 0.09ms
 
-n: 71657
+n: 10873
 Key length: 5
-Factors of n (p and q): [131, 547]
-Totient value for RSA algorithm: 70980
-d: 25811
-Total time taken to factorize n and calculate d: 0.15ms
+Factors of n (p and q): [83, 131]
+Totient value for RSA algorithm: 10660
+d: 7107
+Total time taken to factorize n and calculate d: 0.06ms
 
-n: 1148153
+n: 105571
+Key length: 6
+Factors of n (p and q): [193, 547]
+Totient value for RSA algorithm: 104832
+d: 41933
+Total time taken to factorize n and calculate d: 0.20ms
+
+n: 1295083
 Key length: 7
-Factors of n (p and q): [547, 2099]
-Totient value for RSA algorithm: 1145508
-d: 687305
-Total time taken to factorize n and calculate d: 0.46ms
+Factors of n (p and q): [617, 2099]
+Totient value for RSA algorithm: 1292368
+d: 861579
+Total time taken to factorize n and calculate d: 0.66ms
 
-n: 16638773
+n: 17494889
 Key length: 8
-Factors of n (p and q): [2099, 7927]
-Totient value for RSA algorithm: 16628748
-d: 9977249
-Total time taken to factorize n and calculate d: 1.78ms
+Factors of n (p and q): [2207, 7927]
+Totient value for RSA algorithm: 17484756
+d: 13987805
+Total time taken to factorize n and calculate d: 2.44ms
 
-n: 230683627
+n: 234524959
 Key length: 9
-Factors of n (p and q): [7927, 29101]
-Totient value for RSA algorithm: 230646600
-d: 98848543
-Total time taken to factorize n and calculate d: 6.30ms
+Factors of n (p and q): [8059, 29101]
+Totient value for RSA algorithm: 234487800
+d: 200989543
+Total time taken to factorize n and calculate d: 9.47ms
 
-n: 3048126043
+n: 3059228801
 Key length: 10
-Factors of n (p and q): [29101, 104743]
-Totient value for RSA algorithm: 3047992200
-d: 2612564743
-Total time taken to factorize n and calculate d: 27.72ms
+Factors of n (p and q): [29207, 104743]
+Totient value for RSA algorithm: 3059094852
+d: 1223637941
+Total time taken to factorize n and calculate d: 41.76ms
 
-n: 38895370363
+n: 38942159329
 Key length: 11
-Factors of n (p and q): [104743, 371341]
-Totient value for RSA algorithm: 38894894280
-d: 27782067343
-Total time taken to factorize n and calculate d: 126.08ms
+Factors of n (p and q): [104869, 371341]
+Totient value for RSA algorithm: 38941683120
+d: 27815487943
+Total time taken to factorize n and calculate d: 156.61ms
 
-n: 482639695861
+n: 482858048989
 Key length: 12
-Factors of n (p and q): [371341, 1299721]
-Totient value for RSA algorithm: 482638024800
-d: 413689735543
-Total time taken to factorize n and calculate d: 554.59ms
+Factors of n (p and q): [371509, 1299721]
+Totient value for RSA algorithm: 482856377760
+d: 413876895223
+Total time taken to factorize n and calculate d: 569.11ms
 
-n: 5854186431827
+n: 5854889084999
 Key length: 13
-Factors of n (p and q): [1299721, 4504187]
-Totient value for RSA algorithm: 5854180627920
-d: 2508934554823
-Total time taken to factorize n and calculate d: 1902.30ms
+Factors of n (p and q): [1299877, 4504187]
+Totient value for RSA algorithm: 5854883280936
+d: 4683906624749
+Total time taken to factorize n and calculate d: 1763.90ms
 
-n: 69751240825129
+n: 69753966337721
 Key length: 14
-Factors of n (p and q): [4504187, 15485867]
-Totient value for RSA algorithm: 69751220835076
-d: 46500813890051
-Total time taken to factorize n and calculate d: 6010.75ms
+Factors of n (p and q): [4504363, 15485867]
+Totient value for RSA algorithm: 69753946347492
+d: 27901578538997
+Total time taken to factorize n and calculate d: 6539.24ms
 
-n: 818613390320389
+n: 818624174161657
 Key length: 15
-Factors of n (p and q): [15485867, 52861967]
-Totient value for RSA algorithm: 818613321972556
-d: 545742214648371
-Total time taken to factorize n and calculate d: 20901.39ms
+Factors of n (p and q): [15486071, 52861967]
+Totient value for RSA algorithm: 818624105813620
+d: 545749403875747
+Total time taken to factorize n and calculate d: 21539.15ms

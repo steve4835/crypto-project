@@ -55,14 +55,18 @@ class RSA(object):
         n = p * q
         totient = (p - 1) * (q - 1)
 
-        for e in range(3, totient):
-            if math.gcd(e, totient) == 1:
-               break
+        e = RSA.find_e(totient)
 
         #generate private key
         d = RSA.table_method(totient, e)
 
         return dict(pub=[e,n], priv=[d, n])
+
+    @staticmethod
+    def find_e(totient):
+        for e in range(3, totient):
+            if math.gcd(e, totient) == 1:
+               return e
 
     @staticmethod
     def table_method(totient, e):
@@ -120,3 +124,21 @@ if __name__ == "__main__":
     m.decrypt(keys['priv'])
     print("decrypted message: ", m.get_message(), "\n", m.message)
 
+    #routine to test the time complexity of factoring the public key
+    primes = RSA.prime_range(1, 100000000)
+    for i in range(1, 13):
+        a = primes[int(10**(i/2)) + 12] * primes[int(10**((i+1)/2))]
+        factors = RSA.factorize(a)
+        print("n: {0}\nKey length:{1}".format(
+              a,
+              len(str(a))))
+        print("Factors of n (p and q):", factors[:-1])
+        totient = (factors[0] - 1) * (factors[1] - 1)
+        print("Totient value for RSA algorithm: {0}".format(totient))
+        start = time.time_ns()
+        e = RSA.find_e(totient)
+        d = RSA.table_method(totient, e)
+        end = time.time_ns()
+        time_taken = factors[2] + ((end - start) / 10**6)
+        print("d: ", d)
+        print("Total time taken to factorize n and calculate d: {0:.2f}ms\n".format(time_taken))

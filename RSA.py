@@ -12,7 +12,7 @@ class RSA(object):
         return True
 
     @staticmethod
-    def prime_range(m=0, n):
+    def prime_range(m, n):
         prime = [True for i in range(n+1)]
         p = 2
         prime[0] = False

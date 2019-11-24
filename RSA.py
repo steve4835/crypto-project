@@ -60,7 +60,7 @@ class RSA(object):
         #generate private key
         d = RSA.table_method(totient, e)
 
-        return dict(pub=[e,n], priv=[d, n])
+        return dict(pub=[e,n], priv=[d, p, q])
 
     @staticmethod
     def find_e(totient):
@@ -109,7 +109,7 @@ class RSA(object):
         if not self.encrypted:
             return
         d = priv[0]
-        n = priv[1]
+        n = priv[1] * priv[2]
         self.message = [pow(m, d, n) for m in self.message]
         self.encrypted = False
 
